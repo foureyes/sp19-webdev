@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<head>
+	<title>HTML</title>
+	<link rel="stylesheet" href="css/slides.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link rel="stylesheet" href="css/slides-custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+	<div id="slides">
+		<section class="intro-slide">
+  <h1 id="html">HTML</h1>
+
+  <h3 id="give-your-page-structure-and-meaning-with-html">Give your page structure and meaning with HTML!</h3>
+
+</section>
+
+<section>
+  <h2 id="html-1">HTML</h2>
+
+  <p><strong>HTML</strong> is the language that describes the <strong>structure</strong> and <strong>semantic content</strong> of a document on the web; it consists of:</p>
+
+  <ul>
+    <li><strong>content</strong> (just plain text) 📖</li>
+    <li>and <strong>elements</strong> (tags) that give structure to the text 🔨</li>
+  </ul>
+
+</section>
+
+<section data-background="#440000">
+  <h1 id="html-is-for-content-and-structure">HTML is for content and structure</h1>
+
+</section>
+
+<section>
+  <h2> <strong>H</strong>yper-<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage. </h2>
+
+  <p><span class="fragment"><strong>Hyper-Text</strong> →</span><span class="fragment">Because it allows you to link to other documents on the web! 🌎 </span></p>
+
+  <p class="fragment"><strong>What about the markup part?</strong> →</p>
+
+  <ul>
+    <li class="fragment">markup is a method of <strong>annotating</strong> text…
+      <ul>
+        <li class="fragment">markup itself is syntactically distinguishable from content</li>
+        <li class="fragment">markup is applied to text by using <em>tags</em></li>
+      </ul>
+    </li>
+    <li class="fragment">HTML is generally not considered a language in the <em>programming</em> language sense</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="elements-and-tags">Elements and Tags</h2>
+
+  <p>An <strong>element</strong> a single part of an HTML document; it encompasses both structure and (optionally) content: a paragraph, navigation, etc.</p>
+
+  <ul>
+    <li class="fragment">an <strong>element</strong> is made up of <strong>tags</strong> and, optionally, text: <code>&lt;p&gt;Some Content&lt;/p&gt;</code></li>
+    <li class="fragment"><strong>tags</strong> are used to mark the start and end of an HTML element: <code>&lt;p&gt; ... &lt;/p&gt;</code></li>
+    <li class="fragment">an <strong>opening tag</strong> is an element’s name surrounded by angle brackets: <code>&lt;p&gt;</code></li>
+    <li class="fragment">an <strong>closing tag</strong> is an element’s name prefixed with a forward slash and surrounded by angle brackets: <code>&lt;/p&gt;</code></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="tags-continued">Tags Continued</h2>
+
+  <p>There are a few ways that <strong>tags</strong> and <strong>content</strong> can be combined to create <strong>elements</strong>.  →</p>
+
+  <ul>
+    <li class="fragment">an open and close tag surrounding content: <code>&lt;h1&gt;So Flawless&lt;/h1&gt;</code></li>
+    <li class="fragment">an open and close tag without content: <code>&lt;script src="iamhackr.js"&gt;&lt;script&gt;</code></li>
+    <li class="fragment">only an open tag <code>&lt;img src="puppies.png"&gt;</code></li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="attributes">Attributes</h2>
+
+  <h3 id="an-opening-tag-can-contain-attributes">An <strong>opening tag</strong> can contain <strong>attributes</strong></h3>
+
+  <ul>
+    <li class="fragment">an <strong>attribute</strong> is part of a tag that provides additional information about an element</li>
+    <li class="fragment">it’s composed of a name/value pair joined by an equal sign</li>
+    <li class="fragment">it’s is placed after the name of the element in a tag, but before the last angle bracket: <code>&lt;img src="puppies.png"&gt;</code></li>
+    <li class="fragment">the value doesn’t have to be quoted, but it’s good practice to do so… to avoid issues like this:<code>&lt;input type=text value=what is this&gt;</code></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="a-quick-diagram">A Quick Diagram</h2>
+
+  <p><strong>Name the parts of this markup</strong> →</p>
+
+  <pre><code data-trim="" contenteditable="">&lt;a href="http://we.love.pizza&gt;pizza!&lt;/a&gt;
+</code></pre>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">                element
+                    |
+     +--------------+---------------------+
+     |                                    | 
+    &lt;a href="http://we.love.pizza"&gt;pizza!&lt;/a&gt;
+     |      |                             |
+     |      attribute                     |
+start tag                            end tag
+</code></pre>
+</section>
+
+<section>
+  <h2 id="special-characters">Special Characters</h2>
+
+  <h3 id="some-characters-have-meaning-in-html">Some Characters Have Meaning in HTML</h3>
+
+  <p class="fragment">(for example: &lt;, &gt;, &amp;)</p>
+
+  <p class="fragment">If you need these characters in your content, Use an <strong>HTML entity</strong>, a sequence of characters that represents these special characters</p>
+
+  <ul>
+    <li class="fragment">HTML entities start with <strong>&amp;</strong>, followed by a <strong>name</strong>, and end with <strong>;</strong></li>
+    <li class="fragment">for example, <code>&amp;lt;</code> is <code>&lt;</code> and <code>&amp;amp;</code> is an <code>&amp;</code></li>
+    <li class="fragment">a <a href="http://dev.w3.org/html5/html-author/charref">list of HTML entities</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="some-commonly-used-html-entities">Some Commonly Used HTML Entities:</h2>
+
+  <pre><code data-trim="" contenteditable="">&amp;amp; ... ampersand (&amp;)
+&amp;nbsp; ... non breaking space (&nbsp;)
+&amp;lt; ... less than (&lt;)
+&amp;gt; ... greater than (&gt;)
+&amp;quot; ... double quotes (&quot;)
+&amp;apos; ... single quote (&apos;)
+</code></pre>
+</section>
+
+<section>
+  <h2 id="html-specifications">HTML Specifications</h2>
+
+  <p>Two groups, <strong>WHATWG</strong> and <strong>W3C</strong>, work together to specify HTML 🖋️</p>
+
+  <ul>
+    <li class="fragment"><strong>W</strong>eb <strong>H</strong>ypertext <strong>A</strong>pplication <strong>T</strong>echnology <strong>W</strong>orking <strong>G</strong>roup has a <a href="https://html.spec.whatwg.org/multipage/">living HTML standard</a>
+      <ul>
+        <li class="fragment">continuously evolving standard</li>
+        <li class="fragment">no version numbers</li>
+        <li class="fragment"><em>community</em> driven</li>
+      </ul>
+    </li>
+    <li class="fragment"><strong>W</strong>orld <strong>W</strong>ide <strong>W</strong>eb <strong>C</strong>onsortium) is basing the most recent versions of HTML on WHATWG’s living standard
+      <ul>
+        <li class="fragment">it snapshots versions</li>
+        <li class="fragment">the <a href="https://wiki.whatwg.org/wiki/FAQ#Is_participation_free.3F">latest version is HTML5</a></li>
+        <li class="fragment">version releases are a bit slower than WHATWG’s</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="html5-doctype">HTML5, doctype</h2>
+
+  <p><strong>HTML5</strong> is the most current version of HTML. It defines a bunch of things:</p>
+
+  <ul>
+    <li class="fragment"><em>actual</em> <strong>markup</strong> (like we’ve seen already) ✔️</li>
+    <li class="fragment"><strong>scripting APIs</strong> (through JavaScript) ✔️</li>
+  </ul>
+
+  <p class="fragment">To indicate that your page uses HTML5, use the following <strong>doctype declaration</strong> at the top of your page:</p>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">&lt;!doctype html&gt;
+</code></pre>
+
+  <p class="fragment">This doctype will let browsers know how to <em>render</em> your page.</p>
+</section>
+
+<section>
+  <h2 id="dealing-with-bad-markup">Dealing with Bad Markup</h2>
+
+  <p>Browsers are pretty <strong>forgiving</strong> when it comes to <strong><em>bad</em> markup</strong>: 😅</p>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">No tags surrounding me!
+</code></pre>
+
+  <p class="fragment"><code>html</code>, <code>head</code>, and <code>body</code> tags are inserted</p>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">&lt;html&gt;
+&lt;body&gt;
+		Where's my close body?
+&lt;/html&gt;
+</code></pre>
+
+  <p class="fragment"><code>body</code> is automatically closed</p>
+
+</section>
+
+<section>
+  <h2 id="and-now-some-elements">And Now, Some Elements</h2>
+
+  <h3 id="finally-a-quick-tour-of-some-elements-youll-be-using">Finally… a quick tour of some elements you’ll be using</h3>
+
+  <p>(check out <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">mdn’s html elements reference for more detail!</a></p>
+
+</section>
+<section>
+  <h2 id="root-meta-data-and-content-elements">Root, Meta Data and Content Elements</h2>
+
+  <p class="fragment"><strong>&lt;!doctype html&gt;</strong>: informs the browser to use the appropriate rendering mode for this version of html</p>
+
+  <p class="fragment"><strong>&lt;html&gt;&lt;/html&gt;</strong>: the <em>root</em> or top-level element of a document.</p>
+
+  <p class="fragment"><strong>&lt;head&gt;&lt;/head&gt;</strong>: contains meta data <em>about</em> the document, like which css file(s) to use (<em>link</em>), the <em>title</em> of the document (shown in the tab), etc.</p>
+
+  <p class="fragment"><strong>&lt;body&gt;&lt;/body&gt;</strong>: the content of the document; only one body per document</p>
+
+</section>
+
+<section>
+  <h2 id="that-meta-data">That Meta Data…</h2>
+
+  <h3 id="within-the-head-element">Within the Head Element</h3>
+
+  <p class="fragment"><strong>&lt;link href=”name-of-file.css” rel=”stylesheet”&gt;</strong>: bring in a stylesheet</p>
+
+  <p class="fragment"><strong>&lt;title&gt;&lt;/title&gt;</strong>: title of the page</p>
+
+</section>
+
+<section>
+  <h2 id="headers-footers-and-navigation">Headers, Footers and Navigation</h2>
+
+  <p class="fragment"><strong>&lt;header&gt;&lt;/header&gt;</strong>: represents introductory content such as navigation, logo, search form etc.</p>
+
+  <p class="fragment"><strong>&lt;footer&gt;&lt;/footer&gt;</strong>: typically contains content such as copyright information, author, etc.</p>
+
+  <p class="fragment"><strong>&lt;h1&gt;&lt;/h1&gt; (through &lt;h6&gt;)</strong>: section headers with 1 being the highest and 6 being the lowest</p>
+
+  <p class="fragment"><strong>&lt;nav&gt;&lt;/nav&gt;</strong>: describes a part of the page that provides navigation (there can be more than one nav element)</p>
+
+</section>
+
+<section>
+  <h2 id="breaking-up-your-actual-content">Breaking Up Your Actual Content</h2>
+
+  <p class="fragment"><strong>&lt;article&gt;&lt;/article&gt;</strong>: self-contained composition, possibly independently distributable (blog or forum post, magazine article, a user’s comment, etc.)</p>
+
+  <p class="fragment"><strong>&lt;section&gt;&lt;/section&gt;</strong>: generic <em>section</em> of your page (thematic grouping of content, usually with heading), like chapters in a book, broad sections of page (overview, news, contact)</p>
+
+  <p class="fragment"><strong>&lt;img src=”/path/to/image.jpg” alt=”describes image”&gt;</strong>: an image, no closing tag</p>
+
+  <p class="fragment"><strong>&lt;br&gt;</strong>: line break (no closing tag)</p>
+
+  <p class="fragment"><strong>&lt;hr&gt;</strong>: horizontal line (no closing tag)</p>
+</section>
+
+<section>
+  <h2 id="blocks">Blocks</h2>
+
+  <p>For organizing blocks / sections of content within body…</p>
+
+  <p class="fragment"><strong>&lt;p&gt;&lt;/p&gt;</strong>: pargraph</p>
+
+  <p class="fragment"><strong>&lt;blockquote&gt;&lt;/blockquote&gt;</strong>: extended quotation</p>
+
+  <p class="fragment"><strong>&lt;ul&gt;&lt;/ul&gt;, &lt;ol&gt;&lt;/ol&gt; and nested &lt;li&gt;&lt;/li&gt;</strong>: unordered and ordered list with nested list items</p>
+
+  <p class="fragment"><strong>&lt;div&gt;&lt;/div&gt;</strong>: <em>generic</em> block element</p>
+
+  <p class="fragment"><strong>&lt;table&gt;&lt;/table&gt; (along with thead, tbody, tr, td)</strong>: tabular data</p>
+
+</section>
+
+<section>
+  <h2 id="inline">Inline</h2>
+
+  <p>For annotating a word or line…</p>
+
+  <p class="fragment"><strong>&lt;a href=”/path/to/page.html”&gt;&lt;/a&gt;</strong>: link to another page or section within this page</p>
+
+  <p class="fragment"><strong>&lt;strong&gt;&lt;/strong&gt;</strong>: element has strong importance / urgency within context of document</p>
+
+  <p class="fragment"><strong>&lt;span&gt;&lt;/span&gt;</strong>: generic inline element</p>
+
+</section>
+
+
+	</div>
+	<script src="js/slides.js"></script>
+</body>
+</html>

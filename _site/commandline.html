@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<head>
+	<title>Commandline</title>
+	<link rel="stylesheet" href="css/slides.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link rel="stylesheet" href="css/slides-custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+	<div id="slides">
+		<section class="intro-slide">
+  <h1 id="commandline">Commandline</h1>
+
+  <p><small></small></p>
+</section>
+
+<section class="title-slide">
+  <h2 id="whats-a-command-line-interface-cli">What’s a Command Line Interface (CLI)</h2>
+
+  <p>It’s a way of <strong>interacting with your computer</strong> (or… errr… another computer?)</p>
+
+  <ul>
+    <li class="fragment">you give it <strong>instructions by typing a command</strong></li>
+    <li class="fragment">a <strong>command</strong> is some sequence of characters</li>
+    <li class="fragment">after you press &lt;ENTER&gt;, the computer does <em>stuff</em>!</li>
+    <li class="fragment">you usually get some feedback or output</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="command-line-topics">Command Line Topics</h2>
+
+  <ul>
+    <li>command line basics
+      <ul>
+        <li>getting around the file system</li>
+        <li>finding and manipulating files</li>
+      </ul>
+    </li>
+    <li>other command line tools</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="motivation">Motivation</h2>
+
+  <p><strong><a href="http://snowclones.org/2008/02/19/x-is-hard-let%E2%80%99s-go-shopping/">This is hard! Let’s go shopping!</a> <em>Why</em> are we learning this? →</strong></p>
+
+  <ul>
+    <li class="fragment">uploading files / working on the server</li>
+    <li class="fragment">many tools require use of the command line</li>
+    <li class="fragment">automation</li>
+    <li class="fragment">experience different platforms / tools</li>
+    <li class="fragment">lookin’ <a href="http://en.wikipedia.org/wiki/Leet">1337</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="terminal">Terminal</h2>
+
+  <ul>
+    <li>On MacOS, the command line interface using an application called <strong>Terminal</strong>.</li>
+    <li><strong>Open it.  It’s probably under Applications → Utilities. →</strong></li>
+    <li>On windows… ummmm. <code class="highlighter-rouge">cmd.exe</code> (or use cmder, cygwin, etc. … or use putty to login to a machine with a different OS)</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="terminal-vs-gui">Terminal vs GUI</h2>
+
+  <p>This is basically an alternative interface to your computer</p>
+
+  <ul>
+    <li class="fragment">you can do a lot of things in terminal that you can do by clicking through folders, windows, and applications with your trackpad/mouse</li>
+    <li class="fragment">it’s primarily text based input and output</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="demo-a-quick-tour"><strong>Demo</strong>: A Quick Tour</h2>
+
+  <p><strong>In your OS… how do you?</strong> →</p>
+
+  <ul>
+    <li>create, copy, edit, and list files
+      <ul>
+        <li class="fragment">(finder, TextEditor, Windows Explorer, Notepad)</li>
+      </ul>
+    </li>
+    <li>see processes, stop processes
+      <ul>
+        <li class="fragment">(Activity Monitor / Task Manager)</li>
+      </ul>
+    </li>
+    <li>find files
+      <ul>
+        <li class="fragment">(finder, spotlight, <em>cortana</em> 🤦‍)</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p class="fragment"><strong>Welllllll… you can do all of that through the terminal!</strong></p>
+</section>
+
+<section>
+  <h1 id="entering-commands">Entering Commands</h1>
+</section>
+
+<section>
+  <h2 id="commands">Commands</h2>
+
+  <p><strong>Commands</strong> are <strong>verbs</strong>; they tell the computer to do something.</p>
+</section>
+
+<section>
+  <h2 id="entering-a-command">Entering a Command</h2>
+
+  <p>Once you have Terminal open, you should see a string of characters that ends with a dollar sign.  This is called the <strong>command prompt</strong>.  A <strong>prompt</strong> looks something like this.</p>
+
+  <pre><code data-trim="" contenteditable=""> walsh-9:~ joe$
+</code></pre>
+
+  <p>Whenever you see a line in these slides prefixed with a $, that means that we’re typing something in at the <strong>prompt</strong>.</p>
+</section>
+
+<section>
+  <h2 id="executing-a-command">Executing a Command</h2>
+
+  <p>In terminal, type in the name of the command, and press &lt;ENTER&gt;.  <strong>Let’s trying using ls, a command to list files and directories</strong> →</p>
+
+  <ul>
+    <li>open Terminal (Applications → Utilities → Terminal</li>
+    <li>type <strong>ls</strong></li>
+    <li>press &lt;ENTER&gt;</li>
+  </ul>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls
+</code></pre>
+</section>
+
+<section>
+  <h2 id="where-are-you">Where Are You?</h2>
+
+  <p>Note that when you’re at the prompt, you’re always running commands in the context of some location on your computer.</p>
+
+  <ul>
+    <li>This location corresponds to an actual directory.</li>
+    <li>You can change <em>where you are</em> using various commands.  We’ll see that later.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="lets-repeat-that-at-the-prompt-youre-running-commands-in-the-context-of-some-location-think-folderdirectory-on-your-computer">Let’s Repeat That: At the prompt, you’re running commands in the context of some location (think folder/directory) on your computer</h2>
+
+</section>
+
+<section>
+  <h2 id="what-was-that-again">What Was That Again?</h2>
+
+  <ul>
+    <li>when you’re at the prompt</li>
+    <li>and you type in a command</li>
+    <li>you’re doing so while you’re in a particular folder/directory</li>
+    <li>you’re always <em>located</em> somewhere on your file system</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="arguments">Arguments</h2>
+
+  <p><strong>Arguments</strong> are the thing or things that a command acts on; they’re like <strong>nouns</strong> (or more formally, <strong>direct objects</strong>).</p>
+</section>
+
+<section>
+  <h2 id="commands-and-arguments">Commands and Arguments</h2>
+
+  <p>Some commands can optionally have <strong>arguments</strong>:</p>
+
+  <ul>
+    <li>they go after the command name</li>
+    <li>a command may potentially be able to take 0 or more arguments</li>
+  </ul>
+
+  <p><strong>Try this (list files in Desktop):</strong></p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls Desktop
+</code></pre>
+</section>
+
+<section>
+  <h2 id="flags">Flags</h2>
+
+  <p><strong>Flags</strong> are like <strong>adverbs</strong>.  They specify how a command is run.</p>
+
+  <p>(sometimes they’re also called <em>options</em>)</p>
+</section>
+
+<section>
+  <h2 id="commands-and-flags">Commands and Flags</h2>
+
+  <p><strong>Commands</strong> can optionally have <strong>flags</strong>.</p>
+
+  <ul>
+    <li>they go after the command name, but usually before arguments</li>
+    <li>they are specified with either - or –</li>
+    <li>commands may have 0 or more flags.</li>
+  </ul>
+
+  <p><strong>Try this (list all, including hidden, files in Desktop):→</strong></p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls -a Desktop
+</code></pre>
+</section>
+
+<section>
+  <h2 id="tab-completion">&lt;TAB&gt; Completion</h2>
+
+  <p>You can use the &lt;TAB&gt; key to complete commands or file names.  <strong>Try typing the following:→</strong></p>
+
+  <ul>
+    <li>ls Desk&lt;TAB&gt;</li>
+    <li><strong>What happens? →</strong></li>
+  </ul>
+
+  <p class="fragment">The argument, Desktop, is automatically completed for you!  <strong>Go ahead and run the command by pressing &lt;ENTER&gt; →</strong></p>
+</section>
+
+<section>
+  <h2 id="tabtab">&lt;TAB&gt;&lt;TAB&gt;</h2>
+
+  <p>What if there are multiple matches?  <strong>Type the letter l and then &lt;TAB&gt;. What happens? →</strong></p>
+
+  <p class="fragment">Nothing.  Now try hitting &lt;TAB&gt; one more time.  <strong>What happens? →</strong></p>
+
+  <p class="fragment">All of the possible commands that start with the letter l are shown.</p>
+</section>
+
+<section>
+  <h2 id="next-and-previous-commands">Next and Previous Commands</h2>
+
+  <p>You can use the &lt;UP&gt; or &lt;DOWN&gt; keys to go through previous and next commands.  <strong>Try pressing &lt;UP&gt; twice, and &lt;DOWN&gt; once.  What command is shown?</strong></p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls Desktop
+</code></pre>
+</section>
+
+<section>
+  <h2 id="errors">Errors</h2>
+
+  <p>Type the letter l and press &lt;ENTER&gt;.</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ l
+</code></pre>
+
+  <p><strong>What happens? →</strong></p>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">
+-bash: l: command not found
+</code></pre>
+</section>
+
+<section>
+  <h2 id="more-errors">More Errors</h2>
+
+  <p>Type ls foo and press &lt;ENTER&gt;.</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls foo
+</code></pre>
+
+  <p><strong>What happens? →</strong></p>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">
+ls: foo: No such file or directory
+</code></pre>
+</section>
+
+<section>
+  <h2 id="navigating-the-file-system">Navigating the File System</h2>
+
+  <aside>In Three Parts</aside>
+
+  <ul>
+    <li>OSX’s directory structure</li>
+    <li>A little bit about pathnames</li>
+    <li>How to get around using the commandline</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="lets-look-at-the-macos-directory-structure">Let’s Look at the MacOS Directory Structure</h2>
+</section>
+
+<section>
+  <h2 id="first-some-definitions">First, Some Definitions</h2>
+
+  <p>What’s a <strong>directory</strong>? →</p>
+
+  <ul>
+    <li class="fragment">a <strong>directory</strong> is a cataloging structure on a file system that references other files (and directories)</li>
+    <li class="fragment">we can think of it as <em>a thing that contains files</em> (it’s a little more complex than that, though)</li>
+    <li class="fragment">they’re usually used to organize files</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="more-definitions">More Definitions</h2>
+
+  <p>What’s a <strong>folder</strong>? →</p>
+
+  <ul>
+    <li class="fragment">it’s essentially the same thing as a directory</li>
+    <li class="fragment">but it’s the graphical representation (like the little folder icons in finder)</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="even-more-definitions">Even More Definitions</h2>
+
+  <p>What’s a <strong>pathname</strong>? →</p>
+
+  <ul class="fragment">
+    <li>a <strong>pathname</strong> is the general form of the name of a file or directory; it specifies a unique location in a file system</li>
+    <li>for example, in finder, to locate a file or folder, you follow a particular path - <strong>let’s check this out</strong> →.</li>
+    <li><strong>what’s the path to the Desktop starting from the <em>top most</em> folder, the hard drive (probably Macintosh HD on the lab computers)?</strong> →</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="some-structure">Some Structure</h2>
+
+  <p>Each operating system organizes their files and directories differently.  OSX’s file structure looks like this (it’s similar to other UNIX based file systems):</p>
+
+  <ul>
+    <li><strong>/</strong> - (also called <strong>root</strong>) the top most folder on a disk (the directory that <em>contains</em> all of the other files and directories)</li>
+    <li><strong>/Applications</strong> - where shared applications are kept</li>
+    <li><strong>/Users</strong> - all user accounts and their accompanying files are stored here</li>
+    <li><strong>/Volumes</strong> - all disks that are attached to your computer including USB drives, hard drives, etc.</li>
+    <li><strong>/System</strong> - <em>system specific</em> files, libraries, preferences that are critical to the operating system</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="more-about-the-users-directory">More About the User’s Directory</h2>
+
+  <p>It’s worth noting the directories nested under Users.  They should seem familiar to you.</p>
+
+  <ul>
+    <li><strong>/Users/username</strong> - (also called <strong>home</strong> when you’re in your own username’s directory) contains files specific to that particular user</li>
+    <li><strong>/Users/username/Desktop</strong> - represents the user’s Desktop</li>
+    <li><strong>/Users/username/Downloads</strong> - the user’s downloads folder</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="and-now-to-pathnames">And Now… To Pathnames!</h2>
+
+  <aside>We know a little bit about the file system structure; let's take a closer look at how we locate files</aside>
+</section>
+
+<section>
+  <h2 id="whats-a-pathname-again">What’s a Pathname Again?</h2>
+
+  <p>A <strong>pathname</strong> is the general form of the name of a file or directory; <strong>it specifies a unique location in a file system</strong>.</p>
+</section>
+
+<section>
+  <h2 id="path-separator">Path Separator</h2>
+
+  <p>A <strong>path separator</strong> is a character that’s used to join together each directory in a pathname that contains nested directories (for example, Desktop was located under Users and username…  there was a character that separated each directory).</p>
+
+  <p><strong>What character represents the path separator on MacOS (we just saw this)?</strong> →</p>
+
+  <ul class="fragment">
+    <li>it’s a <strong>forward slash</strong>, <strong>/</strong></li>
+    <li>(sometimes just called <strong>slash</strong> when referencing directories)</li>
+    <li>it’s <strong>not backslash</strong> (that’s the path separator for Windows!)</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="absolute-vs-relative-paths">Absolute vs Relative Paths</h2>
+
+  <ul>
+    <li><strong>absolute paths</strong> are paths expressed as starting from root
+      <ul>
+        <li>example: /Users/username/Desktop</li>
+      </ul>
+    </li>
+    <li><strong>relative paths</strong> are paths expressed as relative from the current working directory
+      <ul>
+        <li>example (if you’re starting from /Users/username): Desktop</li>
+      </ul>
+    </li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="some-special-paths">Some Special Paths</h2>
+
+  <p>There are shortcuts to represent specific paths:</p>
+
+  <ul>
+    <li><strong>~ (tilde)</strong> is <em>your</em> home directory</li>
+    <li><strong>/ (slash)</strong> is root directory</li>
+  </ul>
+
+  <p>The following paths are relative to the directory <em>that you’re in</em>:</p>
+
+  <ul>
+    <li><strong>. (dot)</strong> is the current directory</li>
+    <li><strong>.. (dot dot)</strong> is the parent directory</li>
+    <li><strong>../.. (dot dot slash dot dot)</strong> is the parent of the parent directory</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="lets-see-some-pathnames-through-finder">Let’s See Some Pathnames Through Finder</h2>
+
+  <ul>
+    <li>Desktop</li>
+    <li>Downloads</li>
+    <li>root (probably Macintosh HD)</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="now-that-we-know-about-pathnames-we-can-navigate-the-file-system-using-the-commandline-excited-yet">Now That We Know About Pathnames, We Can Navigate the File System Using the Commandline! (EXCITED YET!?)</h2>
+
+  <aside>Let's learn some commands</aside>
+</section>
+
+<section>
+  <h2 id="ls">ls</h2>
+
+  <p><strong>List all of the files (and directories) in the current directory. →</strong></p>
+
+  <p>Think: <em>list</em> (we just saw this!).</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls
+Applications	Documents   ....
+</code></pre>
+</section>
+
+<section>
+  <h2 id="ls-pathname">ls pathname</h2>
+
+  <p><strong>List all of the files (and directories) in the directory specified by the pathname. →</strong></p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls Desktop
+cuny-first.png		fractal mountains
+</code></pre>
+</section>
+
+<section>
+  <h2 id="ls--l">ls -l</h2>
+
+  <p><strong>The -l flag gives detailed output about each file in the directory →</strong></p>
+
+  <p>Think: <em>l for long version</em>.</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls -l
+drwx------   3 joe  staff   102 Nov  1 15:08 Applications
+drwx------+  7 joe  staff   238 Jan 28 22:46 Desktop
+</code></pre>
+</section>
+
+<section>
+  <h2 id="ls--a">ls -a</h2>
+
+  <p><strong>The -a flag lists all files, including hidden ones →</strong></p>
+
+  <p>Think: <em>a for all</em>.</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls -a
+.			.config			Dropbox
+</code></pre>
+</section>
+
+<section>
+  <h2 id="ls--al">ls -al</h2>
+
+  <p><strong>You can combine flags by placing them one after the other.  This outputs a detailed list of all files. →</strong></p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls -al
+drwxr-xr-x+ 67 joe   staff   2278 Jan 30 02:07 .
+drwxr-xr-x   5 root  admin    170 Aug 13  2011 ..
+-rw-r--r--@  1 joe   staff  24580 Jan 30 02:19 .DS_Store
+-rw-r--r--   1 joe   staff   3459 Mar 21  2011 .RData
+</code></pre>
+  <!-- remove_highlight -->
+</section>
+
+<section>
+  <h2 id="ls--t">ls -t</h2>
+
+  <p><strong>The -t flag sorts by time. →</strong></p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls -lt
+total 0
+drwxr-xr-x   2 joe  staff    68 Jan 30 02:07 mtec1002
+drwx------@ 19 joe  staff   646 Jan 29 21:21 Dropbox
+drwxr-xr-x   9 joe  staff   306 Jan 29 19:31 projects
+</code></pre>
+  <!-- remove_highlight -->
+</section>
+
+<section>
+  <h2 id="combining-flags-and-arguments">Combining Flags and Arguments</h2>
+
+  <p>You can use multiple flags… and combine them with an argument as well. <strong>What do you think this does?</strong> →</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ ls -alt Desktop
+</code></pre>
+
+  <p class="fragment">It lists all of the files in Desktop (if you’re in your <em>home</em> folder), ordered by time, including hidden files and showing extra information.</p>
+
+  <pre class="fragment"><code data-trim="" contenteditable="">
+drwxr-xr-x+ 40 joe  staff    1360 Jan 29 01:12 ..
+-rw-r--r--@  1 joe  staff    6148 Jan 25 01:46 .DS_Store
+drwx------+  6 joe  staff     204 Jan 24 08:26 .
+-rw-r--r--@  1 joe  staff  245447 Jan 23 23:15 cuny-first.png
+drwxr-xr-x  16 joe  staff     544 Oct 28 18:46 fractal mountains
+-rw-r--r--   1 joe  staff       0 Aug 31 22:41 .localized
+</code></pre>
+  <!-- remove_highlight -->
+
+</section>
+
+<section>
+  <h2 id="pwd">pwd</h2>
+
+  <p><strong>Shows the directory that you’re currently in.</strong> →</p>
+
+  <p>Think: <em>print working directory</em>.</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ pwd
+/Users/joe
+</code></pre>
+</section>
+
+<section>
+  <h2 id="hostname">hostname</h2>
+
+  <p><strong>Prints out the name of your computer →</strong></p>
+
+  <pre><code data-trim="" contenteditable="">
+$ hostname
+walsh-9
+</code></pre>
+</section>
+
+<section>
+  <h2 id="mkdir">mkdir</h2>
+
+  <p><strong>Creates a directory with the name of the argument supplied. →</strong></p>
+
+  <p>Think: <em>make directory</em></p>
+
+  <p>One argument is <em>required</em>: the name of the directory to create.</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ mkdir my_animated_gifs
+</code></pre>
+</section>
+
+<section>
+  <h2 id="mkdir-dir1dir2dir3">mkdir dir1/dir2/dir3</h2>
+
+  <p><strong>This attempts to create 3 directories nested within eachother. →</strong></p>
+
+  <p>Forward slash (/) shows that a directory is within the directory preceding it.  dir1/dir2 means dir2 in dir1.</p>
+
+  <p>However, nested directories don’t work as an argument for mkdir. (Unless…)</p>
+  <pre><code data-trim="" contenteditable="">
+$ mkdir dir1/dir2
+mkdir: dir1: No such file or directory
+</code></pre>
+</section>
+
+<section>
+  <h2 id="mkdir--p-dir1dir2">mkdir -p dir1/dir2</h2>
+
+  <p><strong>The -p flag allows you to create multiple directories nested within eachother. →</strong></p>
+
+  <pre><code data-trim="" contenteditable="">
+mkdir -p dir1/dir2
+$ ls
+dir1
+$ ls dir1
+dir2
+</code></pre>
+</section>
+
+<section>
+  <h2 id="cd">cd</h2>
+
+  <p><strong>Changes current directory to the directory specified in the argument. →</strong></p>
+
+  <p>Think: <em>change directory</em></p>
+
+  <p>One argument is <em>required</em>: the name of the directory to change to.</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ cd Desktop
+$ pwd
+/Users/joe/Desktop
+</code></pre>
+</section>
+
+<section>
+  <h2 id="a-reminder-about-special-paths">A Reminder About Special Paths</h2>
+
+  <ul>
+    <li>. (dot) is current directory</li>
+    <li>.. (dot dot) is parent directory</li>
+    <li>../.. (dot dot slash dot dot) is parent of parent directory</li>
+    <li>/ (slash) is root directory</li>
+    <li>~ (tilde) is home directory</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="using-special-paths">Using Special Paths</h2>
+
+  <p>Let’s use special paths with cd →</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ pwd
+/Users/joe
+$ cd ../
+$ pwd
+/Users
+$ ls
+Shared	joe
+$ cd ~
+$ pwd
+/Users/joe
+$ cd /
+$ pwd
+/
+</code></pre>
+</section>
+
+<section>
+  <h2 id="back-to-directory">Back to Directory</h2>
+
+  <p><strong>Pass - (dash) as an argument to cd to go back to the directory you just changed from. →</strong></p>
+
+  <pre><code data-trim="" contenteditable="">
+$ pwd
+/Users/joe
+$ cd /tmp
+$ pwd
+/tmp
+$ cd -
+/Users/joe
+</code></pre>
+</section>
+
+<section>
+  <h2 id="rmdir">rmdir</h2>
+
+  <p><strong>Removes a directory with the name of the argument supplied. →</strong></p>
+
+  <p>Think: <em>remove directory</em></p>
+
+  <p>One argument is <em>required</em>: the name of the directory to remove.</p>
+
+  <pre><code data-trim="" contenteditable="">
+$ mkdir foo
+$ ls
+foo
+$ rmdir foo
+$ ls
+
+</code></pre>
+</section>
+
+<section>
+  <h2 id="pushdpopd">pushd/popd</h2>
+
+  <p><strong>Change to directory, but save current one for later. →</strong></p>
+
+  <ul>
+    <li>pushd requires one argument, the directory to change to.</li>
+    <li>you can pushd multiple directories</li>
+    <li>popd takes you back to the last saved directory</li>
+    <li>you can continue to use popd until there are no more saved directories</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2 id="pushdpopd-continued">pushd/popd Continued</h2>
+
+  <pre><code data-trim="" contenteditable="">
+$ pwd
+/Volumes
+$ pushd ~/Desktop/
+~/Desktop /Volumes
+$ pushd /Applications/
+/Applications ~/Desktop /Volumes
+$ popd
+~/Desktop /Volumes
+$ pwd
+/Users/joe/Desktop
+$ popd
+/Volumes
+</code></pre>
+
+</section>
+
+<section>
+  <h2 id="permissions">Permissions</h2>
+
+  <pre><code data-trim="" contenteditable="">
+chmod 755 foo.html
+</code></pre>
+
+  <pre><code data-trim="" contenteditable="">
+chmod u+r foo.html
+</code></pre>
+
+</section>
+
+	</div>
+	<script src="js/slides.js"></script>
+</body>
+</html>
